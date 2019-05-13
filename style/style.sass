@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300')
+body
+    padding: 0
+    margin: 0
+    background: #202020
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.mainContainer
+    width: 60vh
+    height: 100vh
+    display: grid
+    grid-gap: 0
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: repeat(7, 1fr)
+    & > *
+        border: 1px solid #919296
+        margin: 0
+    & > button
+        background: #D0D1D5
+        font-size: 2.2rem
+        font-family: 'Roboto', sans-serif
+
+    .valueDiv
+        grid-column: 1 / 5
+        grid-row: 1 / 3
+        text-align: right
+        font-size: 2rem
+        color: white
+        p
+            margin: 0
+            font-size: 15vh
+            font-weight: 100 
+            overflow-wrap: normal          
+    .clear
+        grid-column: 1 / 4
+        background: #C9C8CD
+    .operator
+        background: #FA8212
+        font-size: 3rem
+        font-weight: 100
+        color: white
+    .equals
+        color: white
+        background: #FA8212
+        font-size: 3rem
+        font-weight: 100        
+    button[value='0']
+        grid-column: 1 / 3
+
+    
+.clicked
+    opacity: 0.95 !important
