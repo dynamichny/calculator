@@ -5,7 +5,7 @@ $('document').ready(()=>{
     $('button.operator').click(operatorClick);
     $('button.equals').click(equalsClick);
     $('button').mousedown(mousedownn);
-    $('button').mouseup(mouseupp);
+    $('button').mouseup(mouseupp,);
 });
 
 let previousNumber = '';
@@ -23,6 +23,7 @@ function clearClick(){
     currentNumber = '';
     operator = '';
     $('.value').html('0');
+    $('.value').css("transform", `scale(1)`);
 
 }
 function operatorClick(button){
@@ -30,6 +31,7 @@ function operatorClick(button){
     currentNumber = '';
     operator = button.currentTarget.value;
     $('.value').html(previousNumber)
+    textScale();
 }
 
 function equalsClick(){
@@ -55,14 +57,18 @@ function equalsClick(){
     }
     $('.value').html(solution);
     currentNumber = solution;
+    textScale();
 }
 
 function textScale(){
-    console.log('11')
+    let pWidth = $('.value')[0].offsetWidth;
+    let divWidth = $('.valueDiv')[0].offsetWidth - 20;
+    let p = $('.value');
+    if(pWidth / divWidth > 1){
+        p.css("transform", `scale(${divWidth/pWidth})`);
+        p.css("left", "5px");
+    }
 }
-
-
-
 
 function mousedownn(event){
     $(event.target).addClass('clicked');
