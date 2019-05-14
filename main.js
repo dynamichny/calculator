@@ -16,6 +16,7 @@ let operator = '';
 function numClick(button){
     currentNumber += button.currentTarget.value;
     $('.value').html(currentNumber)
+    textScale();
 }
 
 function clearClick(){
@@ -31,7 +32,6 @@ function operatorClick(button){
     currentNumber = '';
     operator = button.currentTarget.value;
     $('.value').html(previousNumber)
-    textScale();
 }
 
 function equalsClick(){
