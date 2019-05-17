@@ -4,4 +4,4 @@ Calculator form Apple iOS 10.
 Demo: <a href="https://dynamichny.github.io/calculator/">https://dynamichny.github.io/calculator/</a>
 <br><br>
 Preview:<br>
-![alt text](https://github.com/dynamichny/calculator/blob/master/calculator-screenshhot.png?raw=true "calendar-card")
+![alt text](https://github.com/dynamichny/calculator/blob/master/calculator-screenshot.PNG "calendar-card")
