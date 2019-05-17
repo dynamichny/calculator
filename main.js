@@ -30,9 +30,10 @@ function clearClick(){
 
 }
 function operatorClick(button){
+    operator = button.currentTarget.value;
+    if(!currentNumber) return;
     previousNumber = currentNumber;
     currentNumber = '';
-    operator = button.currentTarget.value;
     $('.value').html(previousNumber)
 }
 
@@ -59,6 +60,7 @@ function equalsClick(){
     }
     $('.value').html(solution);
     currentNumber = solution;
+    previousNumber = '';
     textScale();
 }
 
