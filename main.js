@@ -5,13 +5,15 @@ $('document').ready(()=>{
     $('button.operator').click(operatorClick);
     $('button.equals').click(equalsClick);
     $('button').mousedown(mousedownn);
-    $('button').mouseup(mouseupp,);
+    $('button').mouseup(mouseupp);
+    $(window).keydown(keydownF);
 });
 
 let previousNumber = '';
 let currentNumber = '';
 let operator = '';
-
+const numbers = ['1','2','3','4','5','6','7','8','9','0','.'];
+const operators = ['-', '*', '/','+'];
 
 function numClick(button){
     currentNumber += button.currentTarget.value;
@@ -66,7 +68,6 @@ function textScale(){
     let p = $('.value');
     if(pWidth / divWidth > 1){
         p.css("transform", `scale(${divWidth/pWidth})`);
-        p.css("left", "5px");
     }
 }
 
@@ -75,4 +76,26 @@ function mousedownn(event){
 }
 function mouseupp(event){
     $(event.target).removeClass('clicked');
+}
+
+function keydownF(event){
+    let key = event.key;
+    if(numbers.includes(key.toString())){
+        currentNumber += key;
+        $('.value').html(currentNumber)
+        textScale();
+    }
+    if(operators.includes(key.toString())){
+        previousNumber = currentNumber;
+        currentNumber = '';
+        operator = key;
+        $('.value').html(previousNumber)
+    }
+    if(key === 'Enter'){
+        equalsClick();
+    }
+    if(key === 'Backspace'){
+        clearClick();
+    }
+
 }
