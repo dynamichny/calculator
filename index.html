@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Calculator</title>
-</head>
-<body>
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+  <body>
     <section class="mainContainer">
-        <div class="valueDiv"><p class="value"></p></div>
-        <button class="clear">C</button>
-        <button value="/" class="operator">÷</button>
-        <button value="7" class="number">7</button>
-        <button value="8" class="number">8</button>
-        <button value="9" class="number">9</button>
-        <button value="*" class="operator">×</button>
-        <button value="4" class="number">4</button>
-        <button value="5" class="number">5</button>
-        <button value="6" class="number">6</button>
-        <button value="-" class="operator">−</button>
-        <button value="1" class="number">1</button>
-        <button value="2" class="number">2</button>
-        <button value="3" class="number">3</button>
-        <button value="+" class="operator">+</button>
-        <button value="0" class="number">0</button>
-        <button value="." class="number">.</button>
-        <button value="=" class="equals">=</button>
+      <div class="valueDiv"><p class="value">0</p></div>
+      <button value="c" class="clear">C</button>
+      <button value="/" class="operator">÷</button>
+      <button value="7" class="number">7</button>
+      <button value="8" class="number">8</button>
+      <button value="9" class="number">9</button>
+      <button value="*" class="operator">×</button>
+      <button value="4" class="number">4</button>
+      <button value="5" class="number">5</button>
+      <button value="6" class="number">6</button>
+      <button value="-" class="operator">−</button>
+      <button value="1" class="number">1</button>
+      <button value="2" class="number">2</button>
+      <button value="3" class="number">3</button>
+      <button value="+" class="operator">+</button>
+      <button value="0" class="number">0</button>
+      <button value="." class="number">.</button>
+      <button value="=" class="equals">=</button>
     </section>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/js/main.js"></script>
+  </body>
 </html>

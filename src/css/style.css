@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.mainContainer {
+  background: #202020;
+  width: 60vh;
+  height: 100vh;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr); }
+  .mainContainer > * {
+    border: 1px solid #919296;
+    margin: 0; }
+  .mainContainer button {
+    background: #D0D1D5;
+    font-size: 2.2rem;
+    font-family: 'Roboto', sans-serif; }
+  .mainContainer .valueDiv {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3; }
+    .mainContainer .valueDiv .value {
+      color: white;
+      margin: 0 0 0 10px;
+      padding: 0;
+      font-size: 15vh;
+      font-weight: 100;
+      width: fit-content;
+      overflow: hidden;
+      transform-origin: left; }
+  .mainContainer .clear {
+    grid-column: 1 / 4;
+    background: #C9C8CD; }
+  .mainContainer .operator {
+    background: #FA8212;
+    font-size: 3rem;
+    font-weight: 100;
+    color: white; }
+  .mainContainer .equals {
+    color: white;
+    background: #FA8212;
+    font-size: 3rem;
+    font-weight: 100; }
+  .mainContainer button[value='0'] {
+    grid-column: 1 / 3; }
+
+.clicked {
+  opacity: 0.95 !important; }
+
+@media (max-width: 600px) {
+  .mainContainer {
+    width: 100vw; } }
