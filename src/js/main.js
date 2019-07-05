@@ -92,7 +92,7 @@ function calc(value) {
         signs.splice(id - 1, 3, result);
         continue;
       }
-
+      currentNumber = signs[0];
       break;
     }
   }
