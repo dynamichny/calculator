@@ -10,8 +10,8 @@ const operators = ['-', '*', '/', '+'];
 
 window.onload = function() {
   // eslint-disable-next-line no-undef
-  TweenMax.set(calculator, { opacity: 0 });
-  TweenMax.to(calculator, 2, { opacity: 1 });
+  TweenMax.set(calculator, { visibility: 'visible' });
+  TweenMax.fromTo(calculator, 1.5, { opacity: 0 }, { opacity: 1 });
   window.addEventListener('keydown', keyClick);
   buttons.forEach(button => {
     button.addEventListener('click', calc);
@@ -38,7 +38,7 @@ function calc(value) {
     if (!signs.length) {
       return;
     }
-    if (operators.includes(signs.length - 1)) {
+    if (operators.includes(signs[signs.length - 1])) {
       signs.splice(signs.length - 1, 1, val);
       return;
     }
