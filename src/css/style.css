@@ -45,7 +45,8 @@ body {
     background: #FA8212;
     font-size: 3rem;
     font-weight: 100;
-    color: white; }
+    color: white;
+    transition: border 0.2s ease-in-out; }
   .mainContainer .equals {
     color: white;
     background: #FA8212;
@@ -53,6 +54,10 @@ body {
     font-weight: 100; }
   .mainContainer button[value='0'] {
     grid-column: 1 / 3; }
+
+.active-operator {
+  border: 2px solid black;
+  font-weight: bold; }
 
 @media (max-width: 600px) {
   .mainContainer {

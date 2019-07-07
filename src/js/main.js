@@ -18,6 +18,7 @@ window.onload = function() {
     button.addEventListener('click', calc);
   });
 };
+
 function calc(value) {
   const val = this.value || value;
   if (numbers.includes(val)) {
@@ -42,12 +43,17 @@ function calc(value) {
     }
     if (operators.includes(signs[signs.length - 1])) {
       signs.splice(signs.length - 1, 1, val);
+      activeOperator(val);
       return;
     }
+    activeOperator(val);
     signs.push(val);
     return;
   }
   if (val === '=') {
+    if (!signs.length || operators.includes(signs[signs.length - 1])) {
+      return;
+    }
     while (true) {
       console.log(signs);
       if (signs.indexOf('*') !== -1) {
@@ -94,7 +100,12 @@ function calc(value) {
         signs.splice(id - 1, 3, result);
         continue;
       }
-      currentNumber = signs.shift();
+      valueP.innerHTML = signs[signs.length - 1];
+      textScale();
+      currentNumber = signs[signs.length - 1];
+      document
+        .querySelector('.active-operator')
+        .classList.remove('active-operator');
       break;
     }
   }
@@ -102,6 +113,11 @@ function calc(value) {
     signs.splice(0, signs.length);
     currentNumber = '';
     valueP.innerHTML = '0';
+    if (document.querySelector('.active-operator')) {
+      document
+        .querySelector('.active-operator')
+        .classList.remove('active-operator');
+    }
     textScale();
     return;
   }
@@ -109,6 +125,17 @@ function calc(value) {
     valueP.innerHTML = signs[signs.length - 1];
     textScale();
   }
+}
+
+function activeOperator(val) {
+  if (document.querySelector('.active-operator')) {
+    document
+      .querySelector('.active-operator')
+      .classList.remove('active-operator');
+  }
+  document
+    .querySelector(`button[value='${val}']`)
+    .classList.add('active-operator');
 }
 
 function textScale() {
