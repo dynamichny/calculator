@@ -24,6 +24,8 @@ body {
     background: #D0D1D5;
     font-size: 2.2rem;
     font-family: 'Roboto', sans-serif; }
+    .mainContainer button:active {
+      opacity: 0.95 !important; }
   .mainContainer .valueDiv {
     grid-column: 1 / 5;
     grid-row: 1 / 3; }
@@ -51,9 +53,6 @@ body {
     font-weight: 100; }
   .mainContainer button[value='0'] {
     grid-column: 1 / 3; }
-
-.clicked {
-  opacity: 0.95 !important; }
 
 @media (max-width: 600px) {
   .mainContainer {

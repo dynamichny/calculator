@@ -3,6 +3,7 @@
 /* eslint-disable no-use-before-define */
 const calculator = document.querySelector('.mainContainer');
 const buttons = document.querySelectorAll('.mainContainer>button');
+const valueP = document.querySelector('.value');
 const signs = [];
 let currentNumber = '';
 const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
@@ -15,21 +16,22 @@ window.onload = function() {
   window.addEventListener('keydown', keyClick);
   buttons.forEach(button => {
     button.addEventListener('click', calc);
-    button.addEventListener('mousedown', mousedownn);
-    button.addEventListener('mouseup', mouseupp);
   });
 };
-
 function calc(value) {
   const val = this.value || value;
   if (numbers.includes(val)) {
+    if (signs.length && signs[signs.length - 1].includes('.') && val === '.') {
+      return;
+    }
     if (operators.includes(signs[signs.length - 1])) {
       currentNumber += val;
       signs.push(currentNumber);
-      document.querySelector('.value').innerHTML = signs[signs.length - 1];
+      valueP.innerHTML = signs[signs.length - 1];
       textScale();
       return;
     }
+
     currentNumber += val;
     signs.splice(signs.length - 1, 1, currentNumber);
   }
@@ -92,39 +94,31 @@ function calc(value) {
         signs.splice(id - 1, 3, result);
         continue;
       }
-      currentNumber = signs[0];
+      currentNumber = signs.shift();
       break;
     }
   }
   if (val === 'c') {
     signs.splice(0, signs.length);
     currentNumber = '';
-    document.querySelector('.value').innerHTML = '0';
+    valueP.innerHTML = '0';
     textScale();
     return;
   }
   if (signs.length) {
-    document.querySelector('.value').innerHTML = signs[signs.length - 1];
+    valueP.innerHTML = signs[signs.length - 1];
     textScale();
   }
 }
 
 function textScale() {
-  const pWidth = document.querySelector('.value').offsetWidth;
-  const divWidth = document.querySelector('.valueDiv').offsetWidth - 20;
-  const p = document.querySelector('.value');
-  if (pWidth / divWidth > 1) {
-    p.style.transform = `scale(${divWidth / pWidth})`;
+  const valueWidth = valueP.offsetWidth;
+  const valueAreaWidth = document.querySelector('.valueDiv').offsetWidth - 20;
+  if (valueWidth / valueAreaWidth > 1) {
+    valueP.style.transform = `scale(${valueAreaWidth / valueWidth})`;
   } else {
-    p.style.transform = `scale(1)`;
+    valueP.style.transform = `scale(1)`;
   }
-}
-
-function mousedownn() {
-  this.classList.add('clicked');
-}
-function mouseupp() {
-  this.classList.remove('clicked');
 }
 
 function keyClick(e) {
