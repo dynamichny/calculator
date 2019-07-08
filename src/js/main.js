@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('.mainContainer>button');
 const valueP = document.querySelector('.value');
 const signs = [];
 let currentNumber = '';
-const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'];
+const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', ','];
 const operators = ['-', '*', '/', '+'];
 
 window.onload = function() {
@@ -20,7 +20,8 @@ window.onload = function() {
 };
 
 function calc(value) {
-  const val = this.value || value;
+  let val = this.value || value;
+  if (val === ',') val = '.';
   if (numbers.includes(val)) {
     if (signs.length && signs[signs.length - 1].includes('.') && val === '.') {
       return;
@@ -103,9 +104,12 @@ function calc(value) {
       valueP.innerHTML = signs[signs.length - 1];
       textScale();
       currentNumber = signs[signs.length - 1];
-      document
-        .querySelector('.active-operator')
-        .classList.remove('active-operator');
+      if (document.querySelector('.active-operator')) {
+        document
+          .querySelector('.active-operator')
+          .classList.remove('active-operator');
+      }
+      signs.splice(0, 1, signs[signs.length - 1].toString());
       break;
     }
   }
